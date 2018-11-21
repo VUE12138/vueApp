@@ -17,16 +17,18 @@ router.post('/',urlencodedParser,function(req, res, next) {
   	var psw = req.body.user.psw;
   	//return res.send(req.body.user.psw)
   	//查询数据库验证账号密码，产看是否对应，且状态是否正常
-  	return config.$query(db.login,account+'', function (err,result){
+    config.$query(db.login,account, function (err,result){
   		if(err)return console.log(err)
-  		res.send(result)
-  		// if(result.psw == psw && result.accountState != 'frozen'){
-  		// 	res.send({login:true})
-  		// }else if(result.psw == psw && result.accountState == 'frozen'){
-  		// 	res.send({login:'frozen'})
-  		// }else{
-  		// 	res.send({login:false})
-  		// }
+  		// res.send(result)
+      var r = result;
+      res.send(r)
+  		if(r.password == psw && r.accountState != 'frozen'){
+  			res.send({login:true})
+  		}else if(r.password == psw && r.accountState == 'frozen'){
+  			res.send({login:'frozen'})
+  		}else{
+  			res.send({login:false})
+  		}
   	})
   	
 });

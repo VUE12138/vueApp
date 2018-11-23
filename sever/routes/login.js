@@ -12,16 +12,18 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 /* GET users listing. */
 router.post('/',urlencodedParser,function(req, res, next) {
-  	if (!req.body) return res.sendStatus(400)
+  	if(!req.body) return res.sendStatus(400);
   	var account = req.body.user.account;
   	var psw = req.body.user.psw;
   	//return res.send(req.body.user.psw)
   	//查询数据库验证账号密码，产看是否对应，且状态是否正常
     config.$query(db.login,account, function (err,result){
-  		if(err)return console.log(err)
+  		if(err) return console.log(err)
   		// res.send(result)
-      var r = result;
-      res.send(r)
+
+      var r = JSON.parse(JSON.stringify(result))[0];
+      console.log(r)
+      if(!r) return res.send({login:false})
   		if(r.password == psw && r.accountState != 'frozen'){
   			res.send({login:true})
   		}else if(r.password == psw && r.accountState == 'frozen'){

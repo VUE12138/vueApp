@@ -4,12 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+//token
+const jwt= require('jsonwebtoken');
+const expressJwt = require('express-jwt');
+
 
 // 创建 application/json 解析
 var jsonParser = bodyParser.json()
 
 // 创建 application/x-www-form-urlencoded 解析
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+//
+
 
 
 var registerRouter = require('./routes/register');
@@ -22,6 +28,19 @@ var cors = require('cors');
 var app = express();
 //
 app.use(cors());
+// var basic = require('./db/basic');
+app.use(expressJwt ({
+    secret: 'hahaha' 
+}).unless({
+    path: ['/login','/register']  //除了这些地址，其他的URL都需要验证
+}));
+app.use(function (err, req, res, next) {
+    //当token验证失败时会抛出如下错误
+    if (err.name === 'UnauthorizedError') {   
+        //这个需要根据自己的业务逻辑来处理（ 具体的err值 请看下面）
+        res.status(401).send('invalid token...');
+    }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

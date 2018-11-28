@@ -97,16 +97,20 @@
       //表单提交
       submitForm:function(fm){
           if(fm =='fm1'){
+              //登录
               this.$http.post('/k/login', {
                   user:this.fm1
               })
               .then(function (response) {
                   console.log(response);
+
+                  //登录成功，获取token  使用vuex保存，作为登录状态和请求凭证
               })
               .catch(function (error) {
                   console.log(error);
               });
           }else{
+              //注册
               this.$http.post('/k/register', {
                   register:this.fm2
               })

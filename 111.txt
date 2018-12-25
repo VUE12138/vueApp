@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS `userlogin`(
+   `id` VARCHAR(40) NOT NULL,
+   `account` VARCHAR(100) NOT NULL,
+   `password` VARCHAR(100) NOT NULL,
+   `accountState` VARCHAR(30) NOT NULL,
+   `lastLoginDate` VARCHAR(50) NOT NULL,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+id,name,account,password,accountState,lastLoginDate
+
+
+INSERT INTO userlogin (id, account,password,accountState,lastLoginDate)
+                       VALUES
+                       ('111','123456','654321','normal','1996/06/06');
+
+                       ALTER TABLE userlogin ADD COLUMN name VARCHAR(50);
+                       update userlogin set account='youzi' where name='yz';
+
+
+
+建三张表

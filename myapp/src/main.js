@@ -1,13 +1,17 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import vuex from 'vuex'
 import App from './App'
 import router from './router'
 import axios from 'axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import store from  './store/store.js'
 Vue.use(ElementUI)
 Vue.prototype.$http = axios
+Vue.prototype.$store = store
+//Vue.prototype.$router = router
 
 //设置axios拦截器，对所有请求在token存在的情况下，在请求头携带token
 axios.interceptors.request.use(function (config) {

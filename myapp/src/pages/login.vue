@@ -98,13 +98,19 @@
       submitForm:function(fm){
           if(fm =='fm1'){
               //登录
+              var that = this
               this.$http.post('/k/login', {
                   user:this.fm1
               })
               .then(function (response) {
                   console.log(response);
-
-                  //登录成功，获取token  使用vuex保存，作为登录状态和请求凭证
+                  if(response.data.login == false){
+                    console.log("登录信息错误或账号已冻结")
+                  }else{
+                    //登录成功，获取token  使用vuex保存，sessoinStorage.token保存供同源页面使用，作为登录状态和请求凭证，token有效时间：12*60*60秒
+                    that.$store.commit('set_token', response.data["token"]);
+                    that.$router.push({name:'homePage'})
+                  }
               })
               .catch(function (error) {
                   console.log(error);

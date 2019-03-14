@@ -1,26 +1,13 @@
 <template>
    <el-container>
       <el-header>
-            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-              <el-menu-item index="1">处理中心</el-menu-item>
-                 <el-submenu index="2">
-                   <template slot="title">我的工作台</template>
-                   <el-menu-item index="2-1">选项1</el-menu-item>
-                   <el-menu-item index="2-2">选项2</el-menu-item>
-                   <el-menu-item index="2-3">选项3</el-menu-item>
-                   <el-submenu index="2-4">
-                     <template slot="title">选项4</template>
-                     <el-menu-item index="2-4-1">选项1</el-menu-item>
-                     <el-menu-item index="2-4-2">选项2</el-menu-item>
-                     <el-menu-item index="2-4-3">选项3</el-menu-item>
-                   </el-submenu>
-                 </el-submenu>
-                 <el-menu-item index="3" disabled>消息中心</el-menu-item>
-                     <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">11管理</a>
-                 </el-menu-item>
-                  <el-menu-item index="5" >消息中心</el-menu-item>
-                  <el-menu-item index="6" >消息中心</el-menu-item>
-            </el-menu>
+            <ul>
+               <li>1</li>
+               <li>2</li>
+               <li>3</li>
+               <li>4</li>
+               <li>5</li>
+            </ul>
       </el-header>
       <el-main>Main</el-main>
       <el-footer>Footer</el-footer>
@@ -54,8 +41,20 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .el-header {
- background-color: #B3C0D1;
- 
+/* background-color: #B3C0D1;*/
+ text-align: center;
+}
+ul{
+   display: inline-block;
+   padding-left: 50px;
+   padding-right: 50px;
+}
+li{
+   display: inline-block;
+   height: 20px;
+   width: 150px;
+   background-color: red;
+
 }
 .el{
    text-align: center;

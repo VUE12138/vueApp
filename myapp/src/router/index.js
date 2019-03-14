@@ -2,8 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Hello from '@/components/Hello'
+import home from '@/components/home'
+
 import login from '@/pages/login'
 import index from '@/pages/index'
+import homePage from '@/pages/homePage'
 
 Vue.use(Router)
 
@@ -32,7 +35,7 @@ export default new Router({
     {
     path: '/homePage',
     name: 'homePage',
-      component: index
+      component: home
     }
   ]
 })

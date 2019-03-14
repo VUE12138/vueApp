@@ -11,6 +11,7 @@ import store from  './store/store.js'
 Vue.use(ElementUI)
 Vue.prototype.$http = axios
 Vue.prototype.$store = store
+// Vue.prototype.$et = ElementUI
 //Vue.prototype.$router = router
 
 //设置axios拦截器，对所有请求在token存在的情况下，在请求头携带token

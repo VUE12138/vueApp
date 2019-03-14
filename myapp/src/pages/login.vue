@@ -105,7 +105,17 @@
               .then(function (response) {
                   console.log(response);
                   if(response.data.login == false){
-                    console.log("登录信息错误或账号已冻结")
+                    console.log("登录信息错误")
+                    that.$notify.error({
+                      title: '错误',
+                      message: '登录信息错误'
+                    });
+                  }else if(response.data.login == 'frozen'){
+                    console.log("账号已冻结")
+                    that.$notify.error({
+                      title: '错误',
+                      message: '账号已冻结'
+                    });
                   }else{
                     //登录成功，获取token  使用vuex保存，sessoinStorage.token保存供同源页面使用，作为登录状态和请求凭证，token有效时间：12*60*60秒
                     that.$store.commit('set_token', response.data["token"]);
@@ -127,9 +137,7 @@
                   console.log(error);
               });
           }
-
-      }
-      
+      }   
     }
   }
 

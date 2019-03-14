@@ -1,6 +1,6 @@
 <!-- homepage -->
 <template>
-	<span>666666666666666</span>
+	
 </template>
 <script>
  export default {

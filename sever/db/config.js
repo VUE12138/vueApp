@@ -1,10 +1,10 @@
 var mysql = require('mysql');
 var pool = mysql.createPool({   
-      host: '10.88.1.126',  // 主机名
-      user: 'wkp',       // 用户名
-      password: '1234',       // 密码
-      database: 'VueApp',       // 数据库名 
-      port: 3306          // 端口号（默认都是3306）
+      host: 'cdb-mcxlb8zz.gz.tencentcdb.com',  // 主机名
+      user: 'root',       // 用户名
+      password: 'abc3330309',       // 密码
+      database: 'vue',       // 数据库名 
+      port: 10110          // 端口号（默认都是3306）
   });
 function query(sql, values, callback) {
 	// body...

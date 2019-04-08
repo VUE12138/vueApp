@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `userlogin`(
+CREATE TABLE IF NOT EXISTS `userLogin`(
    `id` VARCHAR(40) NOT NULL,
    `account` VARCHAR(100) NOT NULL,
    `password` VARCHAR(100) NOT NULL,
@@ -21,4 +21,15 @@ INSERT INTO userlogin (id, account,password,accountState,lastLoginDate)
 
 
 
-建三张表
+userInfo:
+CREATE TABLE IF NOT EXISTS `userInfo`(
+   `id` VARCHAR(40) NOT NULL,
+   `account` VARCHAR(100) NOT NULL,
+   `password` VARCHAR(100) NOT NULL,
+   `accountState` VARCHAR(30) NOT NULL,
+   `lastLoginDate` VARCHAR(50) NOT NULL,
+   `name` VARCHAR(50) NOT NULL,
+   `email` VARCHAR(50) NOT NULL,
+   `level` INT(150) NOT NULL,
+   PRIMARY KEY ( `id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;

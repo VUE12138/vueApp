@@ -9,7 +9,7 @@
                </el-col>
                <el-col :span="16">
                   <div class="">
-                     <el-tabs v-model="activeName" stretch  @tab-click="handleClick" value = 'first'>
+                     <el-tabs v-model="activeName" stretch   value = 'first'>
                            <el-tab-pane label="5" name="first">1</el-tab-pane>
                            <el-tab-pane label="6" name="second">2</el-tab-pane>
                            <el-tab-pane label="7" name="third">3</el-tab-pane>

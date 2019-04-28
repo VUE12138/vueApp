@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 const jwt= require('jsonwebtoken');
 const expressJwt = require('express-jwt');
 
-
 // 创建 application/json 解析
 var jsonParser = bodyParser.json()
 

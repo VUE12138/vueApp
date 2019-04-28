@@ -61,6 +61,7 @@
 	</div>
 </template>
 <script>
+import login from '../API/auth/auth.js'
  export default {
     data() {
       return {
@@ -99,9 +100,11 @@
           if(fm =='fm1'){
               //登录
               var that = this
-              this.$http.post('/k/login', {
-                  user:this.fm1
-              })
+              // this.$http.post('/k/login', {
+              //     user:this.fm1
+              // })
+              // console.log(this.fm1)
+              login({user:this.fm1})
               .then(function (response) {
                   console.log(response);
                   if(response.data.login == false){

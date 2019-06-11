@@ -4,24 +4,28 @@
             <el-row>
                <el-col :span="4">
                   <div class="">
-                     111
+                     <span>&nbsp;</span>
                   </div>
                </el-col>
                <el-col :span="16">
                   <div class="">
                      <el-tabs v-model="activeName" stretch   value = 'first'>
-                           <el-tab-pane label="5" name="first">1</el-tab-pane>
-                           <el-tab-pane label="6" name="second">2</el-tab-pane>
-                           <el-tab-pane label="7" name="third">3</el-tab-pane>
-                           <el-tab-pane label="8" name="fourth">4</el-tab-pane>
+                           <el-tab-pane label="首页" name="first"><index></index></el-tab-pane>
+                           <el-tab-pane label="123" name="second">2</el-tab-pane>
+                           <el-tab-pane label="234" name="third">3</el-tab-pane>
+                           <el-tab-pane label="345" name="fourth">4</el-tab-pane>
                      </el-tabs>
                   </div>
                </el-col>
                <el-col :span="4">
                   <div class="">
                         <el-dropdown>
-                              <el-button  class="userIcon el-arrow-down"> <image src='../assets/userInfo.jpg'></image></el-button>
-                              <!-- <div class="userName"><span>wkp</span></div> -->
+                           <div class= 'icon el-arrow-down'>
+                              <div  class="userIcon "> 
+                                 <img  src='../assets/userInfo.jpg'></img>
+                              </div>
+                              <div class="userName"><span>wkp</span></div>
+                           </div>
                               <el-dropdown-menu slot="dropdown">
                                  <el-dropdown-item>111111</el-dropdown-item>
                                  <el-dropdown-item>2</el-dropdown-item>
@@ -42,14 +46,18 @@
 </template>
 
 <script>
+import index from '../components/index'
 export default {
   name: 'home',
   data () {
     return {
+       activeName:'second',
       msg: 'Welcome to Your Vue.js App'
     }
   },
-  
+  components:{
+     index
+  },
     mounted:function(){
         // this.$http({
         //     methods:'get',
@@ -85,17 +93,25 @@ export default {
   .el-icon-arrow-down {
     font-size: 12px;
   }
+  .icon{
+     display: flex;
+  }
   .userIcon{
      height:41px;
+     width: 41px;
      border-radius: 50%;
-     border: .3px gray solid;
-     display: inline-block;
-     background-image: url('../assets/userInfo.jpg')
+     border: .1px gray solid;
+     overflow: hidden;
+  } 
+  .userIcon img{
+     width:40px;
+     height:40px;
   }
   .userName{
      display: inline;
-     height:36px;
-     line-height: 36px;
-     margin-top:0;
+     height:41px;
+     line-height: 41px;
+     margin-left:10px;
+     font-size: 18px;
   }
 </style>
